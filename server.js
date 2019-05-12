@@ -27,6 +27,18 @@ var urlencodedParser = bodyParser.urlencoded({extended:false})
 var jsonParser = bodyParser.json()
 
 
+app.use(express.static('public'))
+
+// 中间件 就是拦截器。。。。或者像netty的handler
+app.use(function(req, res, next) {
+  console.log("first middleware")
+  next()
+})
+
+app.use(function(req, res, next) {
+  console.log("second middleware")
+  next()
+})
 //app.use(bodyParser.urlencoded({extended:false}))
 
 
