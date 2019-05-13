@@ -26,8 +26,13 @@ app.set('view engine', 'ejs')
 var urlencodedParser = bodyParser.urlencoded({extended:false})
 var jsonParser = bodyParser.json()
 
+var indexRouter = require('./routes/index')
+var userRouter = require('./routes/users')
+
 
 app.use(express.static('public'))
+app.use('/',indexRouter)
+app.use('/users',userRouter)
 
 // 中间件 就是拦截器。。。。或者像netty的handler
 app.use(function(req, res, next) {
