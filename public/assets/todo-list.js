@@ -12,6 +12,8 @@ $(document).ready(function() {
             success: function(data) {
                 //do something with the data via front-end framework
                 location.reload();
+                $('form input').val("")
+                
             }
         });
 
